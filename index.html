@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CALCULATOR</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f0f0f0;
+            }
+    
+            .calculator {
+                background: #fff;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                width: 300px;
+            }
+    
+            .display {
+                width: 100%;
+                height: 50px;
+                margin-bottom: 20px;
+                font-size: 1.5rem;
+                text-align: right;
+                border: none;
+                border-bottom: 2px solid #ccc;
+                padding-right: 10px;
+                box-sizing: border-box;
+                outline: none;
+            }
+    
+            .buttons {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+    
+            button {
+                height: 50px;
+                font-size: 1.2rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                background-color: #e310d5;
+                color: white;
+                transition: background-color 0.2s ease;
+            }
+    
+            button:hover {
+                background-color: #121314;
+            }
+    
+            .operator {
+                background-color: #141514;
+            }
+    
+            .operator:hover {
+                background-color: #1e7e34;
+            }
+    
+            .clear {
+                background-color: #dc3545;
+            }
+    
+            .clear:hover {
+                background-color: #bd2130;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="calculator">
+            <input type="text" class="display" id="display" disabled>
+            <div class="buttons">
+                <button onclick="appendValue('7')">7</button>
+                <button onclick="appendValue('8')">8</button>
+                <button onclick="appendValue('9')">9</button>
+                <button class="operator" onclick="appendValue('/')">/</button>
+    
+                <button onclick="appendValue('4')">4</button>
+                <button onclick="appendValue('5')">5</button>
+                <button onclick="appendValue('6')">6</button>
+                <button class="operator" onclick="appendValue('*')">*</button>
+    
+                <button onclick="appendValue('1')">1</button>
+                <button onclick="appendValue('2')">2</button>
+                <button onclick="appendValue('3')">3</button>
+                <button class="operator" onclick="appendValue('-')">-</button>
+    
+                <button onclick="appendValue('0')">0</button>
+                <button onclick="appendValue('.')">.</button>
+                <button onclick="calculate()">=</button>
+                <button class="operator" onclick="appendValue('+')">+</button>
+    
+                <button class="clear" onclick="clearDisplay()" colspan="4">C</button>
+            </div>
+        </div>
+    
+        <script>
+            const display = document.getElementById('display');
+    
+            function appendValue(value) {
+                display.value += value;
+            }
+    
+            function clearDisplay() {
+                display.value = '';
+            }
+    
+            function calculate() {
+                try {
+                    display.value = eval(display.value);
+                } catch (e) {
+                    display.value = 'Error';
+                    setTimeout(() => display.value = '', 1500);
+                }
+            }
+        </script>
+    </body>
+    </html>
+    
+    <script src="./app.js"></script>
+</body>
+</html>
